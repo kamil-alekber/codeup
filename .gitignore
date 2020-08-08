@@ -1,0 +1,7 @@
+node_modules
+package.json.lerna_backup
+node_modules/
+/build
+/*.log
+.cache
+dist
