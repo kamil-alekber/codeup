@@ -18,7 +18,6 @@ jobs:
       - run: npm ci
       - run: npm run test
       - run: npm run build
-      - run: cd apps/client
       - run: npm run deploy-prod
     env:
       FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
