@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "site": "codeup-client-dev",
+    "public": "apps/client/build",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}
