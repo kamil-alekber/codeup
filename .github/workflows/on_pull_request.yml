@@ -14,8 +14,8 @@ jobs:
         with:
           node-version: 12
       - run: cd apps/client && pwd
-      - run: npm ci
-      - run: npm run test
+      - run: pwd && npm ci
+      - run: pwd npm run test
       - run: npm run build
       - run: npm run deploy-prod
     env:
