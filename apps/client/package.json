@@ -24,6 +24,7 @@
     "@teamsupercell/typings-for-css-modules-loader": "2.2.0",
     "@types/enzyme": "3.10.5",
     "@types/jest": "26.0.8",
+    "firebase-tools": "8.7.0",
     "@types/webpack-env": "1.15.1",
     "css-loader": "3.5.3",
     "jest": "26.2.2",
