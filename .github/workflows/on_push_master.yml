@@ -1,0 +1,22 @@
+# for production
+# for dev
+name: main CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-deploy-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm run test-client
+      - run: npm run build
+      - run: npm run deploy-prod
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

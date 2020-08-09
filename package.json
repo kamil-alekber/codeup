@@ -9,14 +9,15 @@
     "add-root-dev": "npm install --save-dev",
     "add-client": "lerna add --scope=@codeup/client",
     "add-client-dev": "lerna add --dev --scope=@codeup/client",
-    "watch": "npm run pre-watch && lerna run watch --stream --parallel",
+    "watch": "npm run bootstrap && lerna run watch --stream --parallel",
     "build": "lerna run build",
+    "test": "lerna run test --loglevel verbose",
+    "test-client": "jest -c apps/client/jest.config.js",
     "deploy-dev": "mv firebase.dev.json firebase.json && npx firebase deploy --only hosting && mv firebase.json firebase.dev.json",
     "deploy-prod": "mv firebase.prod.json firebase.json && npx firebase deploy --only hosting && mv firebase.json firebase.prod.json",
-    "pre-watch": "npm install && lerna bootstrap",
+    "bootstrap": "npm install && lerna bootstrap",
     "lint": "lerna run lint --stream --no-bail",
-    "clean": "rm -rf node_modules && lerna clean",
-    "test": "echo \"No tests yet\" && exit 0"
+    "clean": "rm -rf node_modules && lerna clean"
   },
   "author": "Kamil Alekberov, Yermek Menzhasarov",
   "license": "ISC",
@@ -33,6 +34,7 @@
     "firebase-tools": "8.7.0",
     "git-branch-is": "4.0.0",
     "husky": "4.2.5",
+    "jest": "26.2.2",
     "lerna": "3.22.1",
     "lint-staged": "10.2.11",
     "npm-check": "5.9.2",
@@ -47,7 +49,8 @@
   },
   "lint-staged": {
     "apps/**/*.{ts,tsx,js,jsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "jest --findRelatedTests -c apps/client/jest.config.js"
     ],
     "apps/**/**.{css,md,scss}": [
       "prettier --write"
