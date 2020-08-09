@@ -13,8 +13,6 @@
     "build": "lerna run build",
     "test": "lerna run test --loglevel verbose",
     "test-client": "jest -c apps/client/jest.config.js",
-    "deploy-dev": "mv firebase.dev.json firebase.json && npx firebase deploy --only hosting && mv firebase.json firebase.dev.json",
-    "deploy-prod": "mv firebase.prod.json firebase.json && npx firebase deploy --only hosting && mv firebase.json firebase.prod.json",
     "bootstrap": "npm install && lerna bootstrap",
     "lint": "lerna run lint --stream --no-bail",
     "clean": "rm -rf node_modules && lerna clean"

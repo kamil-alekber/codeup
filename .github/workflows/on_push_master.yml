@@ -1,6 +1,6 @@
 # for production
 # for dev
-name: main CI
+name: push to master CI
 
 on:
   push:
@@ -14,9 +14,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - run: cd apps/client
       - run: npm ci
-      - run: npm run test-client
+      - run: npm run test
       - run: npm run build
+      - run: cd apps/client
       - run: npm run deploy-prod
     env:
       FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
