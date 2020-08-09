@@ -9,6 +9,7 @@
     "watch": "preact watch",
     "lint": "../../node_modules/.bin/eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "test": "../../node_modules/bin/jest",
+    "test-ci": "jest",
     "deploy-dev": "mv firebase.dev.json firebase.json && npx firebase deploy --token $FIREBASE_TOKEN --only hosting && mv firebase.json firebase.dev.json",
     "deploy-prod": "mv firebase.prod.json firebase.json && npx firebase deploy --token $FIREBASE_TOKEN --only hosting && mv firebase.json firebase.prod.json"
   },

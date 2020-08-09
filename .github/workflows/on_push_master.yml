@@ -14,10 +14,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: cd apps/client
-      - run: npm ci
-      - run: npm run test
-      - run: npm run build
-      - run: npm run deploy-prod
+      - run: cd apps/client && npm ci
+      - run: cd apps/client && npm run test-ci
+      - run: cd apps/client && npm run build
+      - run: cd apps/client && npm run deploy-prod
     env:
       FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
