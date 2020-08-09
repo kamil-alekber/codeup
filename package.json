@@ -9,11 +9,13 @@
     "add-root-dev": "npm install --save-dev",
     "add-client": "lerna add --scope=@codeup/client",
     "add-client-dev": "lerna add --dev --scope=@codeup/client",
-    "watch": "npm run pre-watch && lerna run watch --stream --parallel",
-    "pre-watch": "npm install && lerna bootstrap",
+    "watch": "npm run bootstrap && lerna run watch --stream --parallel",
+    "build": "lerna run build",
+    "test": "lerna run test --loglevel verbose",
+    "test-client": "jest -c apps/client/jest.config.js",
+    "bootstrap": "npm install && lerna bootstrap",
     "lint": "lerna run lint --stream --no-bail",
-    "clean": "rm -rf node_modules && lerna clean",
-    "test": "echo \"No tests yet\" && exit 0"
+    "clean": "rm -rf node_modules && lerna clean"
   },
   "author": "Kamil Alekberov, Yermek Menzhasarov",
   "license": "ISC",
@@ -27,8 +29,10 @@
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "4.0.8",
+    "firebase-tools": "8.7.0",
     "git-branch-is": "4.0.0",
     "husky": "4.2.5",
+    "jest": "26.2.2",
     "lerna": "3.22.1",
     "lint-staged": "10.2.11",
     "npm-check": "5.9.2",
@@ -43,7 +47,8 @@
   },
   "lint-staged": {
     "apps/**/*.{ts,tsx,js,jsx}": [
-      "eslint --fix"
+      "eslint --fix",
+      "jest --findRelatedTests -c apps/client/jest.config.js"
     ],
     "apps/**/**.{css,md,scss}": [
       "prettier --write"

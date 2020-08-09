@@ -2,7 +2,12 @@ import { h } from 'preact';
 import { Link } from 'preact-router/match';
 import style from './style.css';
 
-export function Notfound() {
+interface Props {
+  default?: boolean;
+}
+
+// eslint-disable-next-line
+export function Notfound(_: Props) {
   return (
     <div className={style.notfound}>
       <h1>Error 404</h1>

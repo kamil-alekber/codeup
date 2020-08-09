@@ -1,0 +1,21 @@
+# for dev
+name: pull request CI
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: cd apps/client && npm ci
+      - run: cd apps/client && npm run test-ci
+      - run: cd apps/client && npm run build
+      - run: cd apps/client && npm run deploy-dev
+    env:
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
