@@ -15,7 +15,9 @@
     "test-client": "jest -c apps/client/jest.config.js",
     "bootstrap": "npm install && lerna bootstrap",
     "lint": "lerna run lint --stream --no-bail",
-    "clean": "rm -rf node_modules && lerna clean"
+    "clean": "rm -rf node_modules && lerna clean",
+    "commit": "git commit -m",
+    "push": "git push origin -u $(git branch --contains | tr -d ' *')"
   },
   "author": "Kamil Alekberov, Yermek Menzhasarov",
   "license": "ISC",
@@ -42,7 +44,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "git-branch-is -v --not master && lint-staged -v",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-commit:": "git push --set-upstream origin $(git branch --contains | tr -d ' *')"
     }
   },
   "lint-staged": {

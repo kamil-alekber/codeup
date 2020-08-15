@@ -22,6 +22,4 @@ body {
 
 #app {
   height: 100%;
-  /* space for the fixed header */
-  padding-top: 56px;
 }
