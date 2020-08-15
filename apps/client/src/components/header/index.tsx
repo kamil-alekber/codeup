@@ -5,16 +5,26 @@ import style from './style.css';
 export function Header() {
   return (
     <header className={style.header}>
-      <h1>Preact App</h1>
-      <nav>
+      <h1>
         <Link activeClassName={style.active} href="/">
-          Home
+          Code up
+        </Link>
+      </h1>
+      <nav>
+        <Link activeClassName={style.active} href="/courses/">
+          Все курсы
+        </Link>
+        <Link activeClassName={style.active} href="/community">
+          Комьюнити
         </Link>
         <Link activeClassName={style.active} href="/profile">
-          Me
+          Блог
         </Link>
         <Link activeClassName={style.active} href="/profile/john">
-          John
+          Войти
+        </Link>
+        <Link activeClassName={style.active} href="/profile/thebset">
+          Регистрация
         </Link>
       </nav>
     </header>
