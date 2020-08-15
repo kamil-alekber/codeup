@@ -16,8 +16,8 @@
     "bootstrap": "npm install && lerna bootstrap",
     "lint": "lerna run lint --stream --no-bail",
     "clean": "rm -rf node_modules && lerna clean",
-    "git-commit": "git commit -m",
-    "git-push": "git push origin -u $(git branch --contains | tr -d ' *')"
+    "commit": "git commit -m",
+    "push": "git push origin -u $(git branch --contains | tr -d ' *')"
   },
   "author": "Kamil Alekberov, Yermek Menzhasarov",
   "license": "ISC",
