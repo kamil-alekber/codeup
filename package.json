@@ -18,7 +18,8 @@
     "clean": "rm -rf node_modules && lerna clean",
     "cp": "func() { npm run commit \"$1\" && npm run push; }; func",
     "commit": "git commit -m",
-    "push": "git push origin -u $(git branch --contains | tr -d ' *')"
+    "push": "git push origin -u $(git branch --contains | tr -d ' *')",
+    "del-loc-b": "echo '\nChecking if branch is master...' && git-branch-is -v master && echo '\nDeleting branches...' && if [ $(git branch | wc -l) -gt 1 ]; then git branch --merged | grep -v \\* | xargs git branch -d \n else echo 'Have not deleted other branches. Since you only have one branch:' \"$(git branch | tr -d ' *')\" \n fi"
   },
   "author": "Kamil Alekberov, Yermek Menzhasarov",
   "license": "ISC",
