@@ -16,6 +16,7 @@
     "bootstrap": "npm install && lerna bootstrap",
     "lint": "lerna run lint --stream --no-bail",
     "clean": "rm -rf node_modules && lerna clean",
+    "cp": "func() { npm run commit \"$1\" && npm run push; }; func",
     "commit": "git commit -m",
     "push": "git push origin -u $(git branch --contains | tr -d ' *')"
   },
