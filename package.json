@@ -42,7 +42,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "git-branch-is -v --not master && lint-staged -v",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-commit:": "git push --set-upstream origin $(git branch --contains | tr -d ' *')"
     }
   },
   "lint-staged": {
